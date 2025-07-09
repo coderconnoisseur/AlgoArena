@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice Problems - CodeArena</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="min-h-screen bg-slate-50 dark:bg-slate-900 font-inter transition-colors duration-300">
+    <!-- Header (same as index.html) -->
+    <header class="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-50 backdrop-blur-sm bg-white/80 dark:bg-slate-900/80 transition-colors duration-300">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-4">
+            <a href="index.html" class="flex items-center space-x-2 group">
+              <div class="w-8 h-8 bg-gradient-to-br from-indigo-600 via-purple-600 to-indigo-800 rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-200">
+                <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+                </svg>
+              </div>
+              <span class="text-xl font-bold text-slate-900 dark:text-white font-inter">CodeArena</span>
+            </a>
+          </div>
+
+          <nav class="hidden md:flex items-center space-x-8">
+            <a href="problems.html" class="flex items-center space-x-1 text-indigo-600 dark:text-indigo-400 font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <span>Practice</span>
+            </a>
+            <a href="contests.html" class="flex items-center space-x-1 text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors duration-200 font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path>
+              </svg>
+              <span>Contests</span>
+            </a>
+            <a href="assessments.html" class="text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors duration-200 font-medium">
+              Assessments
+            </a>
+            <a href="leaderboard.html" class="flex items-center space-x-1 text-slate-700 hover:text-indigo-600 dark:text-slate-300 dark:hover:text-indigo-400 transition-colors duration-200 font-medium">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197m13.5-9a2.5 2.5 0 11-5 0 2.5 2.5 0 015 0z"></path>
+              </svg>
+              <span>Leaderboard</span>
+            </a>
+          </nav>
+
+          <div class="flex items-center space-x-4">
+            <button class="p-2 text-slate-600 hover:text-slate-900 dark:text-slate-400 dark:hover:text-slate-100 transition-colors duration-200">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+            </button>
+            
+            <div class="flex items-center space-x-2">
+              <svg class="w-4 h-4 text-slate-600 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+              </svg>
+              <label class="relative inline-flex items-center cursor-pointer">
+                <input type="checkbox" id="darkModeToggle" class="sr-only peer">
+                <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-indigo-300 dark:peer-focus:ring-indigo-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-indigo-600"></div>
+              </label>
+              <svg class="w-4 h-4 text-slate-600 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+              </svg>
+            </div>
+            
+            <div class="flex items-center space-x-2">
+              <button class="px-4 py-2 text-slate-700 hover:text-slate-900 dark:text-slate-300 dark:hover:text-white transition-colors duration-200 font-medium">
+                Sign In
+              </button>
+              <button class="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all duration-200 font-medium shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 transform hover:-translate-y-0.5">
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <!-- Header -->
+      <div class="mb-10 animate-fade-in">
+        <h1 class="text-4xl font-bold text-slate-900 dark:text-white mb-3">Practice Problems</h1>
+        <p class="text-lg text-slate-600 dark:text-slate-400">Solve coding challenges to improve your programming skills</p>
+      </div>
+
+      <!-- Filters -->
+      <div class="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 mb-8 animate-fade-in shadow-lg">
+        <div class="grid md:grid-cols-3 gap-4">
+          <!-- Search -->
+          <div class="relative">
+            <svg class="absolute left-4 top-1/2 transform -translate-y-1/2 w-4 h-4 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            </svg>
+            <input type="text" placeholder="Search problems..." class="w-full pl-12 pr-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white transition-all duration-200">
+          </div>
+
+          <!-- Difficulty Filter -->
+          <div>
+            <select class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white transition-all duration-200">
+              <option>All Difficulty</option>
+              <option>Easy Difficulty</option>
+              <option>Medium Difficulty</option>
+              <option>Hard Difficulty</option>
+            </select>
+          </div>
+
+          <!-- Tag Filter -->
+          <div>
+            <select class="w-full px-4 py-3 border border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-indigo-500 focus:border-transparent bg-white dark:bg-slate-700 text-slate-900 dark:text-white transition-all duration-200">
+              <option>All Tags</option>
+              <option>Array</option>
+              <option>String</option>
+              <option>Hash Table</option>
+              <option>Math</option>
+              <option>Dynamic Programming</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-center hover-lift animate-fade-in">
+          <div class="text-3xl font-bold text-emerald-600 dark:text-emerald-400">{{solved}}</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400 font-medium">Solved</div>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-center hover-lift animate-fade-in">
+          <div class="text-3xl font-bold text-amber-600 dark:text-amber-400">{{attempted}}</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400 font-medium">Attempted</div>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-center hover-lift animate-fade-in">
+          <div class="text-3xl font-bold text-indigo-600 dark:text-indigo-400">1,200</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400 font-medium">Total Problems</div>
+        </div>
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 text-center hover-lift animate-fade-in">
+          <div class="text-3xl font-bold text-purple-600 dark:text-purple-400">{{success_rate}}</div>
+          <div class="text-sm text-slate-600 dark:text-slate-400 font-medium">Success Rate</div>
+        </div>
+      </div>
+
+    <!-- Problems List -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
+  {% for problem in problems %}
+  <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-4 hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 animate-fade-in group">
+    <div class="flex items-center justify-between mb-3">
+      <a href="/problems/{{ problem.id }}" class="text-md font-semibold text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 truncate">
+        {{ problem.title }}
+      </a>
+      <span class="px-2 py-0.5 rounded-full text-xs font-medium
+        {% if problem.difficulty == 'Easy' %}
+          text-emerald-700 bg-emerald-100 dark:text-emerald-400 dark:bg-emerald-900/20
+        {% elif problem.difficulty == 'Medium' %}
+          text-amber-700 bg-amber-100 dark:text-amber-400 dark:bg-amber-900/20
+        {% else %}
+          text-rose-700 bg-rose-100 dark:text-rose-400 dark:bg-rose-900/20
+        {% endif %}
+      ">
+        {{ problem.difficulty }}
+      </span>
+    </div>
+    <div class="flex items-center justify-between">
+      <div class="flex flex-wrap gap-1">
+        {% for tag in problem.tags.split(',') %}
+        <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs rounded hover:bg-slate-200 dark:hover:bg-slate-600 transition">
+          {{ tag.strip() }}
+        </span>
+        {% endfor %}
+      </div>
+      <span class="text-xs text-slate-500 dark:text-slate-400">{{ problem.success_rate }}% success</span>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+      <!-- Pagination -->
+<div class="flex justify-center">
+  <div class="flex items-center space-x-2 animate-fade-in">
+    {% if current_page > 1 %}
+    <a href="?page={{ current_page - 1 }}" class="px-4 py-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition">Previous</a>
+    {% endif %}
+    
+    {% for page in range(1, total_pages + 1) %}
+      <a href="?page={{ page }}" class="px-4 py-2 {% if page == current_page %} bg-indigo-600 text-white {% else %} text-slate-700 dark:text-slate-300 {% endif %} rounded-lg hover:underline">
+        {{ page }}
+      </a>
+    {% endfor %}
+
+    {% if current_page < total_pages %}
+    <a href="?page={{ current_page + 1 }}" class="px-4 py-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition">Next</a>
+    {% endif %}
+  </div>
+</div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

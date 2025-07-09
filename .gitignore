@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.pyc
+*.pyd
+*.pyo
+
+# Virtual environment
+virtualenv/
+venv/
+.venv/
+env/
+
+# Environment variables
+.env
+.flaskenv
+
+# IDE-specific files
+.vscode/
+.idea/
+
+# Database files (if any local ones are generated)
+*.sqlite3
+*.db
+
+# Logs
+*.log
+
+# Temporary files
+*~
+*.bak
+*.swp
+structure.txt
+
+# pytest cache
+.pytest_cache/
+
+# dist and build folders
+dist/
+build/
+
+# MyPy cache
+.mypy_cache/
+
+# Jupyter Notebook files
+.ipynb_checkpoints
+
+# Coverage reports
+.coverage
+.coverage.*
+htmlcov/
+
+# Docker
+.dockerignore
+
+# Frontend build artifacts (if any)
+app/Frontend/dist/
