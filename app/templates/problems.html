@@ -7,7 +7,7 @@
     <title>Practice Problems - CodeArena</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
   </head>
   <body class="min-h-screen bg-slate-50 dark:bg-slate-900 font-inter transition-colors duration-300">
     <!-- Header (same as index.html) -->
@@ -145,39 +145,58 @@
         </div>
       </div>
 
-    <!-- Problems List -->
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mb-10">
-  {% for problem in problems %}
-  <div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-4 hover:shadow-md transition-all duration-200 transform hover:-translate-y-0.5 animate-fade-in group">
-    <div class="flex items-center justify-between mb-3">
-      <a href="/problems/{{ problem.id }}" class="text-md font-semibold text-slate-900 dark:text-white hover:text-indigo-600 dark:hover:text-indigo-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 truncate">
-        {{ problem.title }}
-      </a>
-      <span class="px-2 py-0.5 rounded-full text-xs font-medium
-        {% if problem.difficulty == 'Easy' %}
-          text-emerald-700 bg-emerald-100 dark:text-emerald-400 dark:bg-emerald-900/20
-        {% elif problem.difficulty == 'Medium' %}
-          text-amber-700 bg-amber-100 dark:text-amber-400 dark:bg-amber-900/20
-        {% else %}
-          text-rose-700 bg-rose-100 dark:text-rose-400 dark:bg-rose-900/20
-        {% endif %}
-      ">
-        {{ problem.difficulty }}
-      </span>
-    </div>
-    <div class="flex items-center justify-between">
-      <div class="flex flex-wrap gap-1">
-        {% for tag in problem.tags.split(',') %}
-        <span class="px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs rounded hover:bg-slate-200 dark:hover:bg-slate-600 transition">
-          {{ tag.strip() }}
-        </span>
-        {% endfor %}
-      </div>
-      <span class="text-xs text-slate-500 dark:text-slate-400">{{ problem.success_rate }}% success</span>
-    </div>
-  </div>
-  {% endfor %}
+<!-- Problems List Table -->
+<div class="overflow-x-auto shadow rounded-lg border border-slate-200 dark:border-slate-700 mb-10">
+  <table class="w-full divide-y divide-slate-200 dark:divide-slate-700 text-sm">
+    <thead class="bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 uppercase text-xs font-semibold">
+      <tr>
+        <th class="px-6 py-3 text-left">#</th>
+        <th class="px-6 py-3 text-left">Title</th>
+        <th class="px-6 py-3 text-left">Difficulty</th>
+        <th class="px-6 py-3 text-left">Tags</th>
+        <th class="px-6 py-3 text-left">Success</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white dark:bg-slate-900 divide-y divide-slate-100 dark:divide-slate-800">
+      {% for problem in problems %}
+      <tr class="hover:bg-slate-50 dark:hover:bg-slate-800 transition">
+        <td class="px-6 py-3 text-slate-500 dark:text-slate-400">{{ loop.index + (current_page - 1) * page_size }}</td>
+        <td class="px-6 py-3">
+          <a href="/problems/{{ problem.id }}" class="text-indigo-600 dark:text-indigo-400 font-medium hover:underline">
+            {{ problem.title }}
+          </a>
+        </td>
+        <td class="px-6 py-3">
+          <span class="px-2 py-1 rounded-full text-xs font-semibold
+            {% if problem.difficulty == 'Easy' %}
+              text-emerald-700 bg-emerald-100 dark:text-emerald-300 dark:bg-emerald-900/20
+            {% elif problem.difficulty == 'Medium' %}
+              text-amber-700 bg-amber-100 dark:text-amber-300 dark:bg-amber-900/20
+            {% else %}
+              text-rose-700 bg-rose-100 dark:text-rose-300 dark:bg-rose-900/20
+            {% endif %}
+          ">
+            {{ problem.difficulty }}
+          </span>
+        </td>
+        <td class="px-6 py-3">
+          <div class="flex flex-wrap gap-1">
+            {% for tag in problem.tags.split(',') %}
+            <span class="text-xs px-2 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded">
+              {{ tag.strip() }}
+            </span>
+            {% endfor %}
+          </div>
+        </td>
+        <td class="px-6 py-3 text-slate-600 dark:text-slate-400">
+          {{ problem.success_rate }}%
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </div>
+
 
       <!-- Pagination -->
 <div class="flex justify-center">
@@ -186,7 +205,7 @@
     <a href="?page={{ current_page - 1 }}" class="px-4 py-2 text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 transition">Previous</a>
     {% endif %}
     
-    {% for page in range(1, total_pages + 1) %}
+    {% for page in range(current_page, current_page + 3) %}
       <a href="?page={{ page }}" class="px-4 py-2 {% if page == current_page %} bg-indigo-600 text-white {% else %} text-slate-700 dark:text-slate-300 {% endif %} rounded-lg hover:underline">
         {{ page }}
       </a>
@@ -198,6 +217,6 @@
   </div>
 </div>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', path='script.js') }}"></script>
   </body>
 </html>

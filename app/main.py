@@ -36,7 +36,8 @@ async def problems(request:Request,db:Session=Depends(get_db),page:int =1):
         {'request':request,
         'problems':problems,
         'total_pages':total_pages,
-        'current_page':page
+        'current_page':page,
+        'page_size':page_size
         })
 
 @app.get('/users')

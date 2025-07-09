@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
   </head>
   <body class="bg-slate-50 dark:bg-slate-900 font-inter transition-colors duration-300">
     <!-- Header -->
@@ -250,6 +250,6 @@
       </section>
     </main>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', path='script.js') }}"></script>
   </body>
 </html>
